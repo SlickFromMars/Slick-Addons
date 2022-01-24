@@ -1,7 +1,11 @@
-# Slick Modding
+# Slick's Custom Haxe Library
+
+## Installation
  
-To install:
 `haxelib git slick_modding https://github.com/SlickFromMars/Slick-Modding`
 
+Be sure to update often, as new features are added constantly!
 
-Be sure to update often!!
+## About
+
+Made specifically for Project Expansion, but can be used in other Haxe projects.
