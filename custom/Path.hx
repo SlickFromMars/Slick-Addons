@@ -1,4 +1,4 @@
-package slick;
+package custom;
 
 import haxe.io.Path;
 import flixel.FlxSubState;
