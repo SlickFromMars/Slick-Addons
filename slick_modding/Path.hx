@@ -39,6 +39,10 @@ class Path {
 		'text' => 'data'
 	];
 
+	/**
+		* A dynamic cutom pathing system made for Project Expansion.
+		* Put the name of your file first, then the type of file, and the library (if any.)
+	*/
 	inline static public function getPath(key:String, ?type:String = 'none', ?library:String)
 	{
 		var EXT:String = '';
