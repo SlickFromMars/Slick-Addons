@@ -2,7 +2,7 @@
     "name" : "slick_modding",
     "license": "MIT",
     "tags": [
-        "cross", "cpp", "native", "extern", "game"
+        "cross", "game"
     ],
     "description": "Slick's custom code stuff.",
     "version" : "1.0",
