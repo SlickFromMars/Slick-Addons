@@ -8,8 +8,8 @@ import slick_modding.Path;
 
 class Jumpscare extends FlxSprite
 {
-    public function new(key:String, shake:Float = 0.05, duration:Int = 1) {
-        this.loadGraphic(Path.getPath('jumpscares/$key', 'image'));
+    public function new(path:String, shake:Float = 0.05, duration:Int = 1) {
+        this.loadGraphic(path);
         this.setGraphicSize(FlxG.width, FlxG.height);
         this.updateHitbox();
         this.antialiasing = false;
