@@ -1,0 +1,16 @@
+{
+    "name" : "slick-modding",
+    "license": "MIT",
+    "tags": [
+        "cross", "cpp", "native", "extern", "game"
+    ],
+    "description": "Slick custom modding thingy",
+    "version" : "1.0.0",
+    "releasenote": "Initial release",
+    "contributors": [
+        "SlickFromMars"
+    ],
+    "dependencies" : {
+        
+    }
+}
