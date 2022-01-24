@@ -26,7 +26,7 @@ class Path {
 	 * When on the web is .mp3
 	 * Noramlly .ogg
 	 */
-	inline public static var SOUND_EXT:String = #if web "mp3" #else "ogg" #end;
+	inline public static var SOUND_EXT:String;
 
 	/**
 	 *Assigns file extensions to files
@@ -73,8 +73,6 @@ class Path {
 
 		var PATH:String = '$LIB$FOLDER/$key$EXT';
 		var pathPrefix:String = defaultPrefix;
-
-		#if debug trace('getting something from $pathPrefix$PATH'); #end
 			
 		if (!FileSystem.exists(pathPrefix + PATH) && library == 'none') {
 			return getPath('$key$EXT', 'none', 'dynamic');
