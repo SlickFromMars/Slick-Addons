@@ -23,8 +23,8 @@ class Path {
 
 	/**
 	 * The sound file extension.
-	 * When on the web is mp3.
-	 * Noramlly ogg
+	 * When on the web is .mp3
+	 * Noramlly .ogg
 	 */
 	inline public static var SOUND_EXT:String = #if web "mp3" #else "ogg" #end;
 
