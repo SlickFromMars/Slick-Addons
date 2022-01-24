@@ -1,5 +1,5 @@
 {
-    "name" : "slick-modding",
+    "name" : "slick_modding",
     "license": "MIT",
     "tags": [
         "cross", "cpp", "native", "extern", "game"
