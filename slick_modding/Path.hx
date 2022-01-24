@@ -1,4 +1,4 @@
-package slick-modding;;
+package slick_modding;
 
 import haxe.io.Path;
 import flixel.FlxSubState;
