@@ -5,7 +5,7 @@
         "cross", "cpp", "native", "extern", "game"
     ],
     "description": "Slick's custom code stuff.",
-    "version" : "1.0.0",
+    "version" : "1.0",
     "releasenote": "Initial release",
     "contributors": [
         "SlickFromMars"
