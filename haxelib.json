@@ -4,7 +4,7 @@
     "tags": [
         "cross", "cpp", "native", "extern", "game"
     ],
-    "description": "Slick custom modding thingy",
+    "description": "Slick's custom code stuff.",
     "version" : "1.0.0",
     "releasenote": "Initial release",
     "contributors": [

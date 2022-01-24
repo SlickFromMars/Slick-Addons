@@ -1,4 +1,4 @@
-package slick_modding;
+package slick;
 
 import haxe.io.Path;
 import flixel.FlxSubState;
@@ -15,6 +15,8 @@ import sys.FileSystem;
 using StringTools;
 
 class Path {
+	static var defaultPrefix:String = 'assets/';
+
 	inline public static var SOUND_EXT:String = #if web "mp3" #else "ogg" #end;
 
 	public static var EXT_MAP:Map<String, String> = [
@@ -55,7 +57,7 @@ class Path {
 			FOLDER = '$library/';
 
 		var PATH:String = '$LIB$FOLDER/$key$EXT';
-		var pathPrefix:String = 'assets/';
+		var pathPrefix:String = defaultPrefix;
 
 		#if debug trace('getting something from $pathPrefix$PATH'); #end
 			
