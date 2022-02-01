@@ -26,7 +26,7 @@ class Path {
 	 * When on the web is .mp3
 	 * Noramlly .ogg
 	 */
-	inline public static var SOUND_EXT:String;
+	inline public static var SOUND_EXT:String = 'ogg';
 
 	/**
 	 *Assigns file extensions to files
@@ -92,7 +92,7 @@ class Path {
 	}
 
 	/**
-	 *Gets sparrow atlas from an image and xml
+	 *Gets sparrow atlas from an image and xml.
 	 */
 	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{

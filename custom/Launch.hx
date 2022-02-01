@@ -8,6 +8,7 @@ import lime.utils.AssetManifest;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
+import 
 #else
 import openfl.utils.Assets;
 #end
@@ -20,5 +21,6 @@ class Launch
 		#else
 		FlxG.openURL(site);
 		#end
+		trace('opening url $site');
 	}
 }
