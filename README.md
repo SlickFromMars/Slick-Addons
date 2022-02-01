@@ -4,7 +4,7 @@
  
 `haxelib git slick_modding https://github.com/SlickFromMars/Slick-Modding`
 
-Be sure to update often, as new features are added constantly!
+Be sure to update often as new features are added!
 
 ## About
 
