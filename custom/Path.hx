@@ -26,6 +26,7 @@ class Path {
 	 * When on the web is .mp3
 	 * Noramlly .ogg
 	 */
+
 	inline public static var SOUND_EXT:String = 'ogg';
 
 	/**
@@ -60,7 +61,7 @@ class Path {
 	 * A dynamic cutom pathing system made for Project Expansion.
 	 * Put the name of your file first, then the type of file, and the library (if any.)
 	 */
-	inline static public function getPath(key:String, ?type:String = 'none', ?library:String)
+	inline static public function getPath(key:String, type:String = 'none', ?library:String)
 	{
 		var EXT:String = '';
 		if (type != 'none') EXT = '.' + EXT_MAP.get(type.toUpperCase());
