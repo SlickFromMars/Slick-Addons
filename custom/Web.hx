@@ -13,7 +13,7 @@ import
 import openfl.utils.Assets;
 #end
 
-class Launch {
+class Web {
     public static function openURL(site:String) {
 		#if linux
 		Sys.command('/usr/bin/xdg-open', [site]);
