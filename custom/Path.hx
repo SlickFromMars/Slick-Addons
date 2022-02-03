@@ -27,7 +27,7 @@ class Path {
 	 * When on the web is .mp3
 	 * Noramlly .ogg
 	 */
-	inline public static var SOUND_EXT:String = 'ogg';
+	inline public static var SOUND_EXT:String = #if web "mp3" #else "ogg" #end;
 
 	/**
 		*Assigns file extensions to files
