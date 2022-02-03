@@ -1,18 +1,19 @@
 package custom;
 
-import haxe.io.Path;
-import flixel.FlxSubState;
 import flixel.FlxG;
+import flixel.FlxSubState;
 import flixel.graphics.frames.FlxAtlasFrames;
+import haxe.io.Path;
+import lime.utils.Assets;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
-import lime.utils.Assets;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 
 using StringTools;
+
+#if sys
+import sys.FileSystem;
+import sys.io.File;
+#end
 
 class Path {
 	/**
@@ -26,11 +27,10 @@ class Path {
 	 * When on the web is .mp3
 	 * Noramlly .ogg
 	 */
-
 	inline public static var SOUND_EXT:String = 'ogg';
 
 	/**
-	 *Assigns file extensions to files
+		*Assigns file extensions to files
 	 */
 	public static var EXT_MAP:Map<String, String> = [
 		'SOUND' => SOUND_EXT,
@@ -61,10 +61,10 @@ class Path {
 	 * A dynamic cutom pathing system made for Project Expansion.
 	 * Put the name of your file first, then the type of file, and the library (if any.)
 	 */
-	inline static public function getPath(key:String, type:String = 'none', ?library:String)
-	{
+	inline static public function getPath(key:String, type:String = 'none', ?library:String) {
 		var EXT:String = '';
-		if (type != 'none') EXT = '.' + EXT_MAP.get(type.toUpperCase());
+		if (type != 'none')
+			EXT = '.' + EXT_MAP.get(type.toUpperCase());
 
 		var FOLDER:String = FOLDER_MAP.get(type.toLowerCase());
 		var LIB:String = '';
@@ -74,8 +74,8 @@ class Path {
 
 		var PATH:String = '$LIB$FOLDER/$key$EXT';
 		var pathPrefix:String = defaultPrefix;
-			
-		if (!FileSystem.exists(pathPrefix + PATH) && library == 'none') {
+
+		if (#if sys !FileSystem.exists #else !Assets.exists #end (pathPrefix + PATH) && library == 'none') {
 			return getPath('$key$EXT', 'none', 'dynamic');
 		}
 		return pathPrefix + PATH;
@@ -84,19 +84,17 @@ class Path {
 	/**
 	 * Checks to see if a file exists.
 	 */
-	inline static public function fileExists(key:String, type:String, ?library:Null<String>)
-	{
-		if(OpenFlAssets.exists(Path.getPath(key, type, library))) {
+	inline static public function fileExists(key:String, type:String, ?library:Null<String>) {
+		if (OpenFlAssets.exists(Path.getPath(key, type, library))) {
 			return true;
 		}
 		return false;
 	}
 
 	/**
-	 *Gets sparrow atlas from an image and xml.
+		*Gets sparrow atlas from an image and xml.
 	 */
-	inline static public function getSparrowAtlas(key:String, ?library:String)
-	{
+	inline static public function getSparrowAtlas(key:String, ?library:String) {
 		return FlxAtlasFrames.fromSparrow(getPath(key, 'image', library), getPath(key, 'xml', library));
 	}
 }
