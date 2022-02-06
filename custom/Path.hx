@@ -84,8 +84,8 @@ class Path {
 	/**
 	 * Checks to see if a file exists.
 	 */
-	inline static public function fileExists(key:String, type:String, ?library:Null<String>) {
-		if (OpenFlAssets.exists(Path.getPath(key, type, library))) {
+	inline static public function fileExists(key:String) {
+		if (OpenFlAssets.exists(key)) {
 			return true;
 		}
 		return false;
