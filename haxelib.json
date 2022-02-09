@@ -1,16 +1,19 @@
 {
-    "name" : "slick_modding",
+    "name" : "slick_addons",
+    "url" : "https://github.com/SlickFromMars/Slick-Modding",
     "license": "MIT",
     "tags": [
         "cross", "game"
     ],
     "description": "Slick's custom code stuff.",
-    "version" : "1.0",
+    "version" : "1.2.0",
     "releasenote": "Initial release",
     "contributors": [
         "SlickFromMars"
     ],
     "dependencies" : {
-        
+        "flixel": "",
+        "flixel-addons": "",
+        "flixel-ui": ""
     }
 }
