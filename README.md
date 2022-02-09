@@ -2,7 +2,7 @@
 
 ## Installation
  
-`haxelib git slick_modding https://github.com/SlickFromMars/Slick-Modding`
+`haxelib install slick_addons`
 
 Be sure to update often as new features are added!
 
