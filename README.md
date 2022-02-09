@@ -1,5 +1,10 @@
 # Slick's Custom Haxe Library
 
+## Features
+
+* A dynamic pathing system.
+* Cross platform options for everyday functions.
+* A new screenshotting system!
 ## Installation
  
 `haxelib install slick_addons`
