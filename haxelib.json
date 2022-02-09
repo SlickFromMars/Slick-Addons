@@ -6,14 +6,19 @@
         "cross", "game"
     ],
     "description": "Slick's custom code stuff.",
-    "version" : "1.2.1",
-    "releasenote": "We got our very own haxelib!",
+    "version" : "1.2.2",
+    "releasenote": "Updated readme.",
     "contributors": [
         "SlickFromMars"
     ],
     "dependencies" : {
+        "lime": "",
+        "openfl": "",
         "flixel": "",
         "flixel-addons": "",
-        "flixel-ui": ""
+        "flixel-ui": "",
+        "flixel-tools": "",
+        "hscript": "",
+        "actuate": ""
     }
 }
