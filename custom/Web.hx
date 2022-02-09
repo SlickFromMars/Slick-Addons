@@ -13,6 +13,10 @@ import openfl.utils.Assets;
 #end
 
 class Web {
+	/**
+	 * A cross platform way to open a website.
+	 * @param	site	The website to open.
+	 */
     public static function openURL(site:String) {
 		#if linux
 		Sys.command('/usr/bin/xdg-open', [site]);

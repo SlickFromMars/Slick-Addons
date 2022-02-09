@@ -58,8 +58,10 @@ class Path {
 	];
 
 	/**
-	 * A dynamic cutom pathing system made for Project Expansion.
-	 * Put the name of your file first, then the type of file, and the library (if any.)
+	 * A dynamic cutom pathing system made for Project Expansion, but compatible with other projects as well.
+	 * @param	key		The name of the file you want to get.
+	 * @param	type	The type of file that it is.
+	 * @param	library	The hardcoded library that it is in (if any).
 	 */
 	inline static public function getPath(key:String, type:String = 'none', ?library:String) {
 		var EXT:String = '';
@@ -83,6 +85,7 @@ class Path {
 
 	/**
 	 * Checks to see if a file exists.
+	 * @param	key		The path of the file you want to check.
 	 */
 	inline static public function fileExists(key:String) {
 		if (OpenFlAssets.exists(key)) {
@@ -92,7 +95,9 @@ class Path {
 	}
 
 	/**
-		*Gets sparrow atlas from an image and xml.
+	 *Gets sparrow atlas from an image and xml.
+	 * @param	key		The name of your xml and image.
+	 * @param	key		The hardcoded library it is located in.
 	 */
 	inline static public function getSparrowAtlas(key:String, ?library:String) {
 		return FlxAtlasFrames.fromSparrow(getPath(key, 'image', library), getPath(key, 'xml', library));
