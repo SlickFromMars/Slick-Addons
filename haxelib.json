@@ -6,8 +6,8 @@
         "cross", "game"
     ],
     "description": "Slick's custom code stuff.",
-    "version" : "1.2.0",
-    "releasenote": "Initial release",
+    "version" : "1.2.1",
+    "releasenote": "We got our very own haxelib!",
     "contributors": [
         "SlickFromMars"
     ],
