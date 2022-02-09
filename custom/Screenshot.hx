@@ -37,7 +37,6 @@ class Screenshot
         FlxG.mouse.visible = mouseVisible;
 
         recent = temp;
-        trace(recent);
     
         save();
     }
