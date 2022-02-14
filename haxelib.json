@@ -7,8 +7,7 @@
     "version" : "1.4.0-alpha",
     "releasenote": "Modding system, updates to pathing, and auto importing.",
     "contributors": [
-        "SlickFromMars",
-        "unownlifesalt"
+        "SlickFromMars"
     ],
     "dependencies" : {
         "lime": "",
