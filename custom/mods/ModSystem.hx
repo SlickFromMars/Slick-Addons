@@ -5,6 +5,9 @@ import sys.io.File;
 import sys.FileSystem;
 #end
 
+import custom.mods.ModConfig;
+import custom.mods.ModMeta;
+
 /**
  * A dynamic modding system, integrated into the Path class.
  * Use the init function to activate.
@@ -12,6 +15,7 @@ import sys.FileSystem;
 class ModSystem
 {
     public static var modsList:Array<String> = [];
+    public static var metaList:Array<ModMeta> = [];
 
     public static var modsRoot:String = "";
 
@@ -60,12 +64,24 @@ class ModSystem
         if(listyBoi.length != null) listyBoi = modsList;
 
         for(item in listyBoi) {
-            var path = modsRoot + '/' + item + '/' + input;
+            var path = modPath(input, item);
 
             if(FileSystem.exists(path)) {
                 return path;
             }
         }
         return null;
+    }
+
+    /**
+     Appends a mod directory to a path.
+     @param input Path to start with.
+     @param mod Mod to append.
+     @return The appended path.
+     */
+    public static function modPath(input:String, mod:String):String {
+        var path = modsRoot + '/' + mod + '/' + input;
+
+        return path;
     }
 }
