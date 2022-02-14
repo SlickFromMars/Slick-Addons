@@ -35,7 +35,6 @@ class ModSystem
             
             if(modsList.length > 0) {
                 initialized = true;
-                ModConfig.greet(modsList);
             }
         }
     }
@@ -49,6 +48,7 @@ class ModSystem
 
             if(FileSystem.isDirectory(path) && ignored.contains(item) == false && modsList.contains(item) == false) {
                 modsList.push(item);
+                metaList.push(ModConfig.getMeta(item));
             }
         }
     }

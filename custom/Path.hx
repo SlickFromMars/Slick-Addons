@@ -78,7 +78,7 @@ class Path {
 		var PATH:String = 'assets/$LIB$FOLDER/$key$EXT';
 
 		if(ModSystem.initialized) {
-			var modPath = ModSystem.modPath(PATH);
+			var modPath = ModSystem.checkMods(PATH); 
 
 			if(modPath != null) PATH = modPath;
 		}
