@@ -1,6 +1,6 @@
 {
     "name" : "slick_addons",
-    "url" : "https://github.com/SlickFromMars/Slick-Modding",
+    "url" : "https://github.com/SlickFromMars/Slick-Addons",
     "license": "MIT",
     "tags": ["game", "openfl", "flash", "html5", "neko", "cpp", "android", "ios", "cross"],
     "description": "Slick's custom code stuff.",
