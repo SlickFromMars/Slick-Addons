@@ -1,5 +1,6 @@
 package custom.mods;
 
+import haxe.macro.Expr.Metadata;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
@@ -78,12 +79,12 @@ class ModConfig
      * @return The meta.
      */
     public static function getMeta(mod:String):ModMeta {
-        var meat:ModMeta = {
-            name: mod,
-            description: getDescription(mod),
-            modVersion: getVersion(mod),
-            dependencies: getDependencies(mod)
-        };
+        var meat = new ModMeta();
+        meat.name = mod;
+        meat.description = getDescription(mod);
+        meat.modVersion = getVersion(mod);
+        meat.dependencies = getDependencies(mod);
+        meat.description = getDescription(mod);
 
         greet(mod);
 

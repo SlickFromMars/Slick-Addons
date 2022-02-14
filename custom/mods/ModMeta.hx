@@ -1,11 +1,15 @@
 package custom.mods;
 
-typedef ModMeta = 
+class ModMeta
 {
-    var name:String;
-    var description:String;
+    public var name:String;
+    public var description:String;
 
-    var modVersion:String;
+    public var modVersion:String;
 
-    var dependencies:Array<String>;
+    public var dependencies:Array<String>;
+
+    public function new() {
+        
+    }
 }
