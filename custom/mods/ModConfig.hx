@@ -78,14 +78,14 @@ class ModConfig
      * @return The meta.
      */
     public static function getMeta(mod:String):ModMeta {
-        var meat:ModMeta;
+        var meat:ModMeta = {
+            name: mod,
+            description: getDescription(mod),
+            modVersion: getVersion(mod),
+            dependencies: getDependencies(mod)
+        };
 
         greet(mod);
-
-        meat.name = mod;
-        meat.description = getDescription(mod);
-        meat.modVersion = getVersion(mod);
-        meat.dependencies = getDependencies(mod);
 
         return meat;
     }
