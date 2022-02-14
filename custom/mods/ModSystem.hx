@@ -49,6 +49,7 @@ class ModSystem
 
         for(item in FileSystem.readDirectory(modsRoot)) {
             var path = modsRoot + '/' + item;
+            trace('checking mod $path');
 
             if(FileSystem.isDirectory(path) && ignored.contains(item) == false && modsList.contains(item) == false) {
                 trace('loading mod $item');
