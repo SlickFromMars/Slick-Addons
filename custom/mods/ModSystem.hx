@@ -1,6 +1,7 @@
 package custom.mods;
 
 #if sys
+import sys.io.File;
 import sys.FileSystem;
 #end
 
@@ -28,7 +29,10 @@ class ModSystem
         if(FileSystem.readDirectory(modsRoot) != null) {
             reloadFolders();
             
-            if(modsList.length > 0) initialized = true;
+            if(modsList.length > 0) {
+                initialized = true;
+                ModConfig.greet(modsList);
+            }
         }
     }
 
@@ -48,10 +52,14 @@ class ModSystem
     /**
      * Checks mod folders for a specified file and returns what mod it found it in, if any.
      * @param input The path to check.
+     * @param list The mods to check. If left blank it will use the modsList instead.
      * @return The new path, or null if it couldn't find a modded file.
      */
-    public static function modPath(input:String):String {
-        for(item in modsList) {
+    public static function checkMods(input:String, ?list:Array<String>):String {
+        var listyBoi = list;
+        if(listyBoi.length != null) listyBoi = modsList;
+
+        for(item in listyBoi) {
             var path = modsRoot + '/' + item + '/' + input;
 
             if(FileSystem.exists(path)) {
