@@ -61,7 +61,7 @@ class ModSystem
      */
     public static function checkMods(input:String, ?list:Array<String>):String {
         var listyBoi = list;
-        if(listyBoi.length != null) listyBoi = modsList;
+        if(listyBoi != null) listyBoi = modsList;
 
         for(item in listyBoi) {
             var path = modPath(input, item);
