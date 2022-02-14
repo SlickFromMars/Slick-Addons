@@ -30,7 +30,8 @@ class ModSystem
      * @param   root    The root folder of the mod system.
      */
     public static function init(root:String):Void {
-        trace('initializing');
+        trace('Initializing mod system.');
+        modsRoot = root;
         
         if(FileSystem.readDirectory(modsRoot) != null) {
             reloadFolders();
