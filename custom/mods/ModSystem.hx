@@ -29,7 +29,9 @@ class ModSystem
      * Initialize the modding system.
      * @param   root    The root folder of the mod system.
      */
-    public static function init(root:String) {
+    public static function init(root:String):Void {
+        trace('initializing');
+        
         if(FileSystem.readDirectory(modsRoot) != null) {
             reloadFolders();
             
@@ -42,7 +44,9 @@ class ModSystem
     /**
      * Detect what mods are in the root folder.
      */
-    public static function reloadFolders() {
+    public static function reloadFolders():Void {
+        trace('reloading folders');
+
         for(item in FileSystem.readDirectory(modsRoot)) {
             var path = modsRoot + '/' + item;
 
