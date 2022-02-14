@@ -8,6 +8,8 @@ import lime.utils.Assets;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
 
+import custom.mods.ModSystem;
+
 using StringTools;
 
 #if sys
@@ -15,13 +17,11 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
+/**
+ * The dynamic pathing system.
+ * Can generate paths for tons of files.
+ */
 class Path {
-	/**
-	 * Default file prefix.
-	 * Used in getPath
-	 */
-	public static var defaultPrefix:String = 'assets/';
-
 	/**
 	 * The sound file extension.
 	 * When on the web is .mp3
@@ -62,6 +62,7 @@ class Path {
 	 * @param	key		The name of the file you want to get.
 	 * @param	type	The type of file that it is.
 	 * @param	library	The hardcoded library that it is in (if any).
+	 * @return The determined path.
 	 */
 	inline static public function getPath(key:String, type:String = 'none', ?library:String) {
 		var EXT:String = '';
@@ -74,13 +75,18 @@ class Path {
 		if (library != null)
 			FOLDER = '$library/';
 
-		var PATH:String = '$LIB$FOLDER/$key$EXT';
-		var pathPrefix:String = defaultPrefix;
+		var PATH:String = 'assets/$LIB$FOLDER/$key$EXT';
 
-		if (#if sys !FileSystem.exists #else !Assets.exists #end (pathPrefix + PATH) && library == 'none') {
+		if(ModSystem.initialized) {
+			var modPath = ModSystem.modPath(PATH);
+
+			if(modPath != null) PATH = modPath;
+		}
+
+		if (#if sys !FileSystem.exists #else !Assets.exists #end (PATH) && library == 'none') {
 			return getPath('$key$EXT', 'none', 'dynamic');
 		}
-		return pathPrefix + PATH;
+		return PATH;
 	}
 
 	/**
