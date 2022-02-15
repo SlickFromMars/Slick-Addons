@@ -80,13 +80,13 @@ class ModConfig
      */
     public static function getMeta(mod:String):ModMeta {
         var meat = new ModMeta();
-        meat.name = mod;
-        meat.description = getDescription(mod);
-        meat.modVersion = getVersion(mod);
-        meat.dependencies = getDependencies(mod);
-        meat.description = getDescription(mod);
+        //meat.name = mod;
+        //meat.description = getDescription(mod);
+        //meat.modVersion = getVersion(mod);
+        //meat.dependencies = getDependencies(mod);
+        // meat.description = getDescription(mod);
 
-        greet(mod);
+        //greet(mod);
 
         return meat;
     }

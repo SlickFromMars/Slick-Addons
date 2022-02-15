@@ -52,7 +52,7 @@ class ModSystem
             if(FileSystem.isDirectory(path) && ignored.contains(item) == false && modsList.contains(item) == false) {
                 trace('loading mod $item');
                 modsList.push(item);
-                //metaList.push(ModConfig.getMeta(item));
+                metaList.push(ModConfig.getMeta(item));
             }
         }
     }
