@@ -11,6 +11,7 @@ using StringTools;
 import custom.mods.ModSystem;
 import custom.mods.ModMeta;
 
+#if sys
 /**
  * Handles the config files for mods.
  */
@@ -91,3 +92,4 @@ class ModConfig
         return meat;
     }
 }
+#end
