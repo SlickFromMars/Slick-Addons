@@ -30,6 +30,7 @@ class ModSystem
      * @param   root    The root folder of the mod system.
      */
     public static function init(root:String):Void {
+        #if sys
         trace('Initializing mod system.');
         modsRoot = root;
         
@@ -40,12 +41,14 @@ class ModSystem
                 initialized = true;
             }
         }
+        #end
     }
 
     /**
      * Detect what mods are in the root folder.
      */
     public static function reloadFolders():Void {
+        #if sys
         for(item in FileSystem.readDirectory(modsRoot)) {
             var path = modsRoot + '/' + item;
 
@@ -55,6 +58,7 @@ class ModSystem
                 metaList.push(ModConfig.getMeta(item));
             }
         }
+        #end
     }
 
     /**
@@ -64,6 +68,7 @@ class ModSystem
      * @return The new path, or null if it couldn't find a modded file.
      */
     public static function checkMods(input:String, ?list:Array<String>):String {
+        #if sys
         var listyBoi = list;
         if(listyBoi != null) listyBoi = modsList;
 
@@ -74,6 +79,7 @@ class ModSystem
                 return path;
             }
         }
+        #end
         return null;
     }
 
