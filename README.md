@@ -5,7 +5,6 @@
 * A dynamic pathing system.
 * Cross platform options for everyday functions.
 * A new screenshotting system!
-* A new modding system (in the beta phase)
 ## Installation
  
 `haxelib install slick_addons`
