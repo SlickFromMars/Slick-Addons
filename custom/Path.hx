@@ -8,8 +8,6 @@ import lime.utils.Assets;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
 
-import custom.mods.ModSystem;
-
 using StringTools;
 
 #if sys
@@ -76,12 +74,6 @@ class Path {
 			FOLDER = '$library/';
 
 		var PATH:String = 'assets/$LIB$FOLDER/$key$EXT';
-
-		if(ModSystem.initialized) {
-			var modPath = ModSystem.checkMods(PATH); 
-
-			if(modPath != null) PATH = modPath;
-		}
 
 		if (#if sys !FileSystem.exists #else !Assets.exists #end (PATH) && library == 'none') {
 			return getPath('$key$EXT', 'none', 'dynamic');
