@@ -4,8 +4,8 @@
     "license": "MIT",
     "tags": ["game", "openfl", "flash", "html5", "neko", "cpp", "android", "ios", "cross"],
     "description": "Slick's custom haxelib with tons of cool useful tools.",
-    "version" : "1.4.0",
-    "releasenote": "Quality of life changes.",
+    "version" : "1.4.1",
+    "releasenote": "A new custom icon!",
     "contributors": [
         "SlickFromMars",
         "riconuts"
