@@ -40,7 +40,7 @@ class LoadingScreen extends FlxSubState
 
 		bg = new FlxSprite();
 		if(parameters.backgrounds != null) {
-			bg.loadGraphic(FlxG.random.getObject(parameters.backgrounds));
+			bg.loadGraphic(Path.getPath(FlxG.random.getObject(parameters.backgrounds), 'image'));
 		} else {
 			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		}
@@ -90,5 +90,10 @@ class LoadingScreen extends FlxSubState
 				loadingGrp.add(bar);
 			}
 		}
+
+		new FlxTimer().start(parameters.minTime, function(balls:FlxTimer){
+			FlxG.mouse.visible = remember;
+            FlxG.switchState(destination);
+		});
 	}
 }

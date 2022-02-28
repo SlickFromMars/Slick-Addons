@@ -1,6 +1,7 @@
 package custom.loading;
 
 import custom.loading.EnumShit;
+import flixel.FlxState;
 
 typedef ScreenParams =
 {
