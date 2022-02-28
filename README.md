@@ -1,10 +1,13 @@
-# Slick's Custom Haxe Library
+# Slick Addons - A Quality Of Life Haxelib
+
+![](https://github.com/SlickFromMars/Slick-Addons/blob/main/include/images/SLICK_LOGO_SMALL.png)
 
 ## Features
 
-* A dynamic pathing system.
+* A dynamic pathing system. (with a new one coming soon)
 * Cross platform options for everyday functions.
 * A new screenshotting system!
+
 ## Installation
  
 `haxelib install slick_addons`
