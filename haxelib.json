@@ -7,8 +7,7 @@
     "version" : "1.4.1",
     "releasenote": "A new custom icon!",
     "contributors": [
-        "SlickFromMars",
-        "riconuts"
+        "SlickFromMars"
     ],
     "dependencies" : {
         "lime": "",
