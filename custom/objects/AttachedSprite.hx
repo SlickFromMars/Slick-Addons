@@ -1,4 +1,4 @@
-package custom;
+package custom.objects;
 
 import flixel.FlxSprite;
 

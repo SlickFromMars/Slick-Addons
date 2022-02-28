@@ -4,5 +4,9 @@
 
     <icon path="include/images/SLICK_LOGO.png" />
 
+    <haxelib name="flixel-addons" />
+	<haxelib name="flixel-ui" />
+	<haxelib name="flixel" />
+
     <assets path="include" rename="slick" embed="true" />
 </project>

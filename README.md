@@ -7,6 +7,7 @@
 * A dynamic pathing system. (with a new one coming soon)
 * Cross platform options for everyday functions.
 * Attached Sprites!
+* Cool transitions!
 
 ## Installation
  

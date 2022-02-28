@@ -19,7 +19,8 @@ import sys.io.File;
  * The dynamic pathing system.
  * Can generate paths for tons of files.
  */
-class Path {
+class Path
+{
 	/**
 	 * The sound file extension.
 	 * When on the web is .mp3
@@ -62,7 +63,8 @@ class Path {
 	 * @param	library	The hardcoded library that it is in (if any).
 	 * @return The determined path.
 	 */
-	inline static public function getPath(key:String, type:String = 'none', ?library:String) {
+	inline static public function getPath(key:String, type:String = 'none', ?library:String)
+	{
 		var EXT:String = '';
 		if (type != 'none')
 			EXT = '.' + EXT_MAP.get(type.toUpperCase());
@@ -75,7 +77,8 @@ class Path {
 
 		var PATH:String = 'assets/$LIB$FOLDER/$key$EXT';
 
-		if (#if sys !FileSystem.exists #else !Assets.exists #end (PATH) && library == 'none') {
+		if (#if sys !FileSystem.exists #else !Assets.exists #end (PATH) && library == 'none')
+		{
 			return getPath('$key$EXT', 'none', 'dynamic');
 		}
 		return PATH;
@@ -85,19 +88,22 @@ class Path {
 	 * Checks to see if a file exists.
 	 * @param	key		The path of the file you want to check.
 	 */
-	inline static public function fileExists(key:String) {
-		if (OpenFlAssets.exists(key)) {
+	inline static public function fileExists(key:String)
+	{
+		if (OpenFlAssets.exists(key))
+		{
 			return true;
 		}
 		return false;
 	}
 
 	/**
-	 *Gets sparrow atlas from an image and xml.
-	 * @param	key		The name of your xml and image.
-	 * @param	key		The hardcoded library it is located in.
+		*Gets sparrow atlas from an image and xml.
+		* @param	key		The name of your xml and image.
+		* @param	key		The hardcoded library it is located in.
 	 */
-	inline static public function getSparrowAtlas(key:String, ?library:String) {
+	inline static public function getSparrowAtlas(key:String, ?library:String)
+	{
 		return FlxAtlasFrames.fromSparrow(getPath(key, 'image', library), getPath(key, 'xml', library));
 	}
 }
