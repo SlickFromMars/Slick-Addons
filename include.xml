@@ -7,6 +7,7 @@
     <haxelib name="flixel-addons" />
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel" />
+    <haxelib name="lime" />
 
     <assets path="include" rename="assets" embed="true" />
 </project>
