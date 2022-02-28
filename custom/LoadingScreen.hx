@@ -17,7 +17,6 @@ import openfl.utils.Assets;
 #if sys
 import sys.FileSystem;
 #end
-
 import custom.loading.EnumShit;
 import custom.loading.ScreenParams;
 
@@ -30,26 +29,31 @@ class LoadingScreen extends FlxSubState
 	var loadingGrp:FlxSpriteGroup;
 	var bg:FlxSprite;
 
-	public function new(destination:FlxState) {
+	public function new(destination:FlxState)
+	{
 		remember = FlxG.mouse.visible;
-        FlxG.mouse.visible = false;
+		FlxG.mouse.visible = false;
 
 		super();
 
 		loadingGrp = new FlxSpriteGroup();
 
 		bg = new FlxSprite();
-		if(parameters.backgrounds != null) {
+		if (parameters.backgrounds != null)
+		{
 			bg.loadGraphic(Path.getPath(FlxG.random.getObject(parameters.backgrounds), 'image'));
-		} else {
+		}
+		else
+		{
 			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		}
 
 		var scaleStyle = parameters.scaleStyle;
 
-		switch (scaleStyle) {
+		switch (scaleStyle)
+		{
 			default:
-				//do nothing
+			// do nothing
 			case STRETCH:
 				bg.setGraphicSize(FlxG.width, FlxG.height);
 			case FITX:
@@ -58,42 +62,52 @@ class LoadingScreen extends FlxSubState
 				bg.setGraphicSize(0, FlxG.height);
 			case SMART:
 				bg.setGraphicSize(FlxG.width, 0);
-				if(bg.height < FlxG.height) bg.setGraphicSize(0, FlxG.height);
+				if (bg.height < FlxG.height)
+					bg.setGraphicSize(0, FlxG.height);
 		}
 
-		loadingGrp.add(bg);
+		var funk:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 
 		var blackBar = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/blackbar', 'image'));
-        blackBar.setGraphicSize(Std.int(blackBar.width * 1.3), 0);
-        blackBar.scrollFactor.set(0, 0);
-        blackBar.updateHitbox();
-        blackBar.screenCenter(X);
+		blackBar.setGraphicSize(Std.int(blackBar.width * 1.3), 0);
+		blackBar.scrollFactor.set(0, 0);
+		blackBar.updateHitbox();
+		blackBar.screenCenter(X);
 		blackBar.antialiasing = true;
 
-        var bar:FlxSprite = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/bar', 'image'));
-        bar.setGraphicSize(Std.int(bg.width * 1.3), 0);
-        bar.scrollFactor.set(0, 0);
-        bar.updateHitbox();
-        bar.screenCenter(X);
+		var bar:FlxSprite = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/bar', 'image'));
+		bar.setGraphicSize(Std.int(bg.width * 1.3), 0);
+		bar.scrollFactor.set(0, 0);
+		bar.updateHitbox();
+		bar.screenCenter(X);
 
 		var helpMe:FlxText = new FlxText(0, 750, 0, '', 16);
-        helpMe.setFormat(Path.getPath('opensans', 'font'), 35, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        helpMe.text = FlxG.random.getObject(parameters.tips);
-        helpMe.scrollFactor.set(0, 0);
-        helpMe.borderSize = 1;
-        helpMe.screenCenter(X);
-        add(helpMe);
+		helpMe.setFormat(Path.getPath('opensans', 'font'), 35, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		helpMe.text = FlxG.random.getObject(parameters.tips);
+		helpMe.scrollFactor.set(0, 0);
+		helpMe.borderSize = 1;
+		helpMe.screenCenter(X);
 
-		switch(parameters.style) {
-			case STANDARD: {
-				loadingGrp.add(blackBar);
-				loadingGrp.add(bar);
-			}
+		switch (parameters.style)
+		{
+			case STANDARD:
+				{
+					loadingGrp.add(bg);
+					loadingGrp.add(blackBar);
+					loadingGrp.add(bar);
+					loadingGrp.add(helpMe);
+				}
+			case FUNKIN:
+				{
+					loadingGrp.add(funk);
+					loadingGrp.add(bg);
+				}
 		}
 
-		new FlxTimer().start(parameters.minTime, function(balls:FlxTimer){
+		new FlxTimer().start(parameters.minTime, function(balls:FlxTimer)
+		{
 			FlxG.mouse.visible = remember;
-            FlxG.switchState(destination);
+			FlxG.switchState(destination);
 		});
 	}
 }

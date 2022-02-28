@@ -14,19 +14,16 @@ typedef ScreenParams =
 	 * Images to shuffle between.
 	 */
 	?backgrounds:Array<String>,
-
-    /**
-     * The style to scale the background image.
-     */
-    ?scaleStyle:ScaleStyle,
-
-    /**
-     * The minimum time to spend in the loading screen.
-     */
-    ?minTime:Float,
-
-    /**
-     * The fun helpful tips to shuffle between.
-     */
-    ?tips:Array<String>
+	/**
+	 * The style to scale the background image.
+	 */
+	?scaleStyle:ScaleStyle,
+	/**
+	 * The minimum time to spend in the loading screen.
+	 */
+	?minTime:Float,
+	/**
+	 * The fun helpful tips to shuffle between.
+	 */
+	?tips:Array<String>
 }
