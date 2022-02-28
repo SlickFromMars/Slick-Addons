@@ -8,5 +8,5 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel" />
 
-    <assets path="include" rename="slick" embed="true" />
+    <assets path="include" rename="assets" embed="true" />
 </project>
