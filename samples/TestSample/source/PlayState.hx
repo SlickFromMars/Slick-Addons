@@ -11,6 +11,12 @@ class PlayState extends FlxState
 
 	override public function create()
 	{
+		var path = Path.getPath('SLICK_LOGO', 'image');
+		trace('Getting an image from ' + path);
+
+		logo = new FlxSprite(0, 0).loadGraphic(path);
+		logo.screenCenter();
+
 		super.create();
 	}
 
