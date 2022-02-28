@@ -1,5 +1,6 @@
 package;
 
+import custom.Web;
 import custom.AttachedSprite;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -16,6 +17,10 @@ class PlayState extends FlxState
 
 		logo = new FlxSprite(0, 0).loadGraphic(path);
 		logo.screenCenter();
+		
+		add(logo);
+
+		Web.openURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 
 		super.create();
 	}
