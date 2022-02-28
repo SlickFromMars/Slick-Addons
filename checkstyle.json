@@ -1,6 +1,0 @@
-{
-    "defaultSeverity": "WARNING",
-	"baseDefines": [
-		"OLD_PATH_SYSTEM"
-	]
-}
