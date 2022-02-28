@@ -40,7 +40,7 @@ class LoadingScreen extends FlxSubState
 
 		bg = new FlxSprite();
 		if(parameters.backgrounds != null) {
-			bg.loadGraphic(parameters.backgrounds[Std.random(parameters.backgrounds.length)]);
+			bg.loadGraphic(FlxG.random.getObject(parameters.backgrounds));
 		} else {
 			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		}
@@ -56,13 +56,38 @@ class LoadingScreen extends FlxSubState
 				bg.setGraphicSize(FlxG.width, 0);
 			case FITY:
 				bg.setGraphicSize(0, FlxG.height);
+			case SMART:
+				bg.setGraphicSize(FlxG.width, 0);
+				if(bg.height < FlxG.height) bg.setGraphicSize(0, FlxG.height);
 		}
 
 		loadingGrp.add(bg);
 
+		var blackBar = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/blackbar', 'image'));
+        blackBar.setGraphicSize(Std.int(blackBar.width * 1.3), 0);
+        blackBar.scrollFactor.set(0, 0);
+        blackBar.updateHitbox();
+        blackBar.screenCenter(X);
+		blackBar.antialiasing = true;
+
+        var bar:FlxSprite = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/bar', 'image'));
+        bar.setGraphicSize(Std.int(bg.width * 1.3), 0);
+        bar.scrollFactor.set(0, 0);
+        bar.updateHitbox();
+        bar.screenCenter(X);
+
+		var helpMe:FlxText = new FlxText(0, 750, 0, '', 16);
+        helpMe.setFormat(Path.getPath('opensans', 'font'), 35, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        helpMe.text = FlxG.random.getObject(parameters.tips);
+        helpMe.scrollFactor.set(0, 0);
+        helpMe.borderSize = 1;
+        helpMe.screenCenter(X);
+        add(helpMe);
+
 		switch(parameters.style) {
-			default: {
-				
+			case STANDARD: {
+				loadingGrp.add(blackBar);
+				loadingGrp.add(bar);
 			}
 		}
 	}

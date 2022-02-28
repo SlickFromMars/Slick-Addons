@@ -29,4 +29,10 @@ enum ScaleStyle
     * Stretch only on the Y axis.
     */
     FITY;
+    /**
+     * Smart scaling. Will scale to fit the screen, but will not stretch the image at all.
+     *
+     * NOTE: May clip off portions of the image.
+     */
+    SMART;
 }
