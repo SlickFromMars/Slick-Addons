@@ -34,6 +34,8 @@ class LoadingScreen extends FlxSubState
 		remember = FlxG.mouse.visible;
 		FlxG.mouse.visible = false;
 
+		var image = FlxG.random.getObject(parameters.backgrounds);
+
 		super();
 
 		loadingGrp = new FlxSpriteGroup();
@@ -41,7 +43,7 @@ class LoadingScreen extends FlxSubState
 		bg = new FlxSprite();
 		if (parameters.backgrounds != null)
 		{
-			bg.loadGraphic(Path.getPath(FlxG.random.getObject(parameters.backgrounds), 'image'));
+			bg.loadGraphic(Path.getPath(image, 'image'));
 		}
 		else
 		{
@@ -103,6 +105,8 @@ class LoadingScreen extends FlxSubState
 					loadingGrp.add(bg);
 				}
 		}
+
+		add(loadingGrp);
 
 		new FlxTimer().start(parameters.minTime, function(balls:FlxTimer)
 		{
