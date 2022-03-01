@@ -15,3 +15,6 @@
 Made specifically for Project Expansion, but can be used in other Haxe projects.
 
 https://lib.haxe.org/p/slick_addons/
+
+Check out the wiki for more info:
+https://github.com/SlickFromMars/Slick-Addons/wiki
