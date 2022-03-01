@@ -71,6 +71,7 @@ class Path
 		'text' => 'data'
 	];
 
+	#if !OLD_PATH_SYSTEM
 	/**
 	 * Among us is sus!!111!11!1
 	 * @param file 			file you want to get.
@@ -78,7 +79,7 @@ class Path
 	 * @param library 		library, if it exists.
 	 * @param use_openfl 	use openflassets, default is true.
 	 */
-	static public function _getPath_new(file:String, type:CustomAssetType = NONE, ?library:Null<String> = null, ?use_openfl:Bool = true)
+	static public function getPath(file:String, type:CustomAssetType = NONE, ?library:Null<String> = null, ?use_openfl:Bool = true)
 	{
 		var path:String = 'assets/';
 		var folder = '';
@@ -122,7 +123,7 @@ class Path
 							Extention_MAP.set(type, eminemV2);
 					}
 					Extention_string = '.' + Extention_MAP.get(type);
-					return _getPath_new('$file$Extention_string');
+					return getPath('$file$Extention_string');
 				}
 			}
 		}
@@ -147,20 +148,26 @@ class Path
 
 		if (use_openfl)
 		{
-			if (_fileExists(file, type))
-				return _getPath_new(file, type, library);
+			if (fileExists(file, type))
+				return getPath(file, type, library);
 			else
-				return _getPath_new(null, NONE, 'dynamic');
+				return getPath(null, NONE, 'dynamic');
 		}
 		else
 		{
-			if (_fileExists(file, type, false))
-				return _getPath_new(file, type, library, false);
+			if (fileExists(file, type, false))
+				return getPath(file, type, library, false);
 			else
-				return _getPath_new(null, NONE, 'dynamic', false);
+				return getPath(null, NONE, 'dynamic', false);
 		}
 		return path;
 	}
+
+	static public function _includeLibraryPath(file:String, library:String)
+	{
+		return '$library:assets/$library/$file';
+	}
+	#else
 
 	/**
 	 * A dynamic cutom pathing system made for Project Expansion, but compatible with other projects as well.
@@ -189,16 +196,17 @@ class Path
 		}
 		return PATH;
 	}
+	#end
 
 	/**
 	 * Checks to see if a file exists.
 	 * @param	file	The path of the file you want to check.
 	 */
-	static public function _fileExists(file:String, type:CustomAssetType = NONE, ?use_openfl:Bool = true, ?library:String):Bool
+	static public function fileExists(file:String, type:CustomAssetType = NONE, ?use_openfl:Bool = true, ?library:String):Bool
 	{
 		if (use_openfl)
 		{
-			if (OpenFlAssets.exists(_getPath_new(file, type)))
+			if (OpenFlAssets.exists(getPath(file, type)))
 			{
 				return true;
 			}
@@ -206,9 +214,9 @@ class Path
 		else
 		{
 			#if sys
-			if (FileSystem.exists(_getPath_new(file, type)))
+			if (FileSystem.exists(getPath(file, type)))
 			#else
-			if (Assets.exists(_getPath_new(file, type)))
+			if (Assets.exists(getPath(file, type)))
 			#end
 			{
 				return true;
@@ -225,10 +233,5 @@ class Path
 	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{
 		return FlxAtlasFrames.fromSparrow(getPath(key, 'image', library), getPath(key, 'xml', library));
-	}
-
-	static public function _includeLibraryPath(file:String, library:String)
-	{
-		return '$library:assets/$library/$file';
 	}
 }
