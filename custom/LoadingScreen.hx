@@ -68,6 +68,8 @@ class LoadingScreen extends FlxSubState
 					bg.setGraphicSize(0, FlxG.height);
 		}
 
+		bg.screenCenter();
+
 		var funk:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 
 		var blackBar = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/blackbar', 'image'));
