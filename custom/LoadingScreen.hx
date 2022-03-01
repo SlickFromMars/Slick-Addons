@@ -72,14 +72,14 @@ class LoadingScreen extends FlxSubState
 
 		var funk:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 
-		var blackBar = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/blackbar', 'image'));
+		var blackBar = new FlxSprite(0, 727).loadGraphic('slick/images/loading/blackbar.png');
 		blackBar.setGraphicSize(Std.int(blackBar.width * 1.3), 0);
 		blackBar.scrollFactor.set(0, 0);
 		blackBar.updateHitbox();
 		blackBar.screenCenter(X);
 		blackBar.antialiasing = true;
 
-		var bar:FlxSprite = new FlxSprite(0, 727).loadGraphic(Path.getPath('ui/loading/bar', 'image'));
+		var bar:FlxSprite = new FlxSprite(0, 727).loadGraphic('slick/images/loading/bar');
 		bar.setGraphicSize(Std.int(bg.width * 1.3), 0);
 		bar.scrollFactor.set(0, 0);
 		bar.updateHitbox();
