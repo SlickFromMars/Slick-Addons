@@ -9,5 +9,5 @@
 	<haxelib name="flixel" />
     <haxelib name="lime" />
 
-    <assets path="include" rename="assets" embed="true" />
+    <assets path="include" rename="slick" embed="true" />
 </project>
