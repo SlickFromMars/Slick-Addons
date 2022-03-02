@@ -8,7 +8,6 @@
 * Cross platform options for everyday functions.
 * Attached Sprites!
 * Cool transitions!
-* Coming Soon: Modifiable Loading Screen Templates!
 
 ## About
 
