@@ -19,8 +19,14 @@ Be sure to update often as new features are added!
 
 Want to try out experimental features? Type this instead:
 ```shell
-haxelib git slick_addons https://github.com/SlickFromMars/Slick-Addons/tree/nightly
+haxelib git slick_addons https://github.com/SlickFromMars/Slick-Addons
 ```
+
+## Credits
+
+Main Programmer - SlickFromMars
+New Pathing System - SnoWaveDEV
+Frame Atlas Constuctor - Smokey, Rozebud, and bbpanzy (I will be modifying this soon)
 
 ## About
 
