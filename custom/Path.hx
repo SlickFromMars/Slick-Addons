@@ -71,7 +71,6 @@ class Path
 		'text' => 'data'
 	];
 
-	#if !OLD_PATH_SYSTEM
 	/**
 	 * Among us is sus!!111!11!1
 	 * @param file 			file you want to get.
@@ -167,36 +166,6 @@ class Path
 	{
 		return '$library:assets/$library/$file';
 	}
-	#else
-
-	/**
-	 * A dynamic cutom pathing system made for Project Expansion, but compatible with other projects as well.
-	 * @param	key		The name of the file you want to get.
-	 * @param	type	The type of file that it is.
-	 * @param	library	The hardcoded library that it is in (if any).
-	 * @return The determined path.
-	 */
-	inline static public function getPath(key:String, type:String = 'none', ?library:String)
-	{
-		var EXT:String = '';
-		if (type != 'none')
-			EXT = '.' + EXT_MAP.get(type.toUpperCase());
-
-		var FOLDER:String = FOLDER_MAP.get(type.toLowerCase());
-		var LIB:String = '';
-
-		if (library != null)
-			FOLDER = '$library/';
-
-		var PATH:String = 'assets/$LIB$FOLDER/$key$EXT';
-
-		if (#if sys !FileSystem.exists #else !Assets.exists #end (PATH) && library == 'none')
-		{
-			return getPath('$key$EXT', 'none', 'dynamic');
-		}
-		return PATH;
-	}
-	#end
 
 	/**
 	 * Checks to see if a file exists.
@@ -232,6 +201,6 @@ class Path
 	 */
 	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{
-		return FlxAtlasFrames.fromSparrow(getPath(key, 'image', library), getPath(key, 'xml', library));
+		return FlxAtlasFrames.fromSparrow(getPath(key, IMAGE, library), getPath(key, XML, library));
 	}
 }
