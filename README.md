@@ -5,9 +5,10 @@
 ## Features
 
 * An amazing dynamic pathing system!!!
-* Cross platform options for everyday functions.
-* Attached Sprites!
-* Cool transitions!
+* Semantic versioning interpretation
+* Cross platform options for everyday functions
+* Attached Sprites
+* Cool transitions for your transitioning needs
 
 ## Installation
  
