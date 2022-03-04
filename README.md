@@ -4,7 +4,7 @@
 
 ## Features
 
-* TWO dynamic pathing systems!!!
+* An amazing dynamic pathing system!!!
 * Cross platform options for everyday functions.
 * Attached Sprites!
 * Cool transitions!
@@ -24,9 +24,9 @@ haxelib git slick_addons https://github.com/SlickFromMars/Slick-Addons
 
 ## Credits
 
-Main Programmer - SlickFromMars
-New Pathing System - SnoWaveDEV
-Frame Atlas Constuctor - Smokey, Rozebud, and bbpanzy (I will be modifying this soon)
+* Main Programmer - SlickFromMars
+* New Pathing System - SnoWaveDEV
+* Frame Atlas Constuctor - Smokey, Rozebud, and bbpanzy (I will be modifying this soon)
 
 ## About
 
