@@ -27,7 +27,7 @@ haxelib git slick_addons https://github.com/SlickFromMars/Slick-Addons
 
 * Main Programmer - SlickFromMars
 * New Pathing System - SnoWaveDEV
-* Frame Atlas Constuctor - Smokey, Rozebud, and bbpanzy (I will be modifying this soon)
+* Frame Atlas Constuctor - Smokey, Rozebud, and bbpanzu (I will be modifying this soon)
 
 ## About
 
