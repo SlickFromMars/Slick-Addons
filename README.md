@@ -4,10 +4,23 @@
 
 ## Features
 
-* A dynamic pathing system. (with a new one coming soon)
+* TWO dynamic pathing systems!!!
 * Cross platform options for everyday functions.
 * Attached Sprites!
 * Cool transitions!
+
+## Installation
+ 
+```shell
+haxelib install slick_addons
+```
+
+Be sure to update often as new features are added!
+
+Want to try out experimental features? Type this instead:
+```shell
+haxelib git slick_addons https://github.com/SlickFromMars/Slick-Addons/tree/nightly
+```
 
 ## About
 
