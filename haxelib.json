@@ -4,8 +4,8 @@
     "license": "MIT",
     "tags": ["game", "openfl", "flash", "html5", "neko", "cpp", "android", "ios", "cross"],
     "description": "Slick's custom haxelib with tons of cool useful tools.",
-    "version" : "1.5.0",
-    "releasenote": "NEW PATHING SYSTEM",
+    "version" : "2.0.0",
+    "releasenote": "Complete overhaul, with remade features, plus new ones.",
     "contributors": [
         "SlickFromMars"
     ],
@@ -17,6 +17,6 @@
         "flixel-ui": "",
         "flixel-tools": "",
         "hscript": "",
-        "actuate": ""
+        "systools": ""
     }
 }

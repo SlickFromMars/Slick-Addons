@@ -32,11 +32,12 @@ class Web
 
 	/**
 	 * Check to see if the user can connect to the internet.
+	 * @return Whether it was successful or not.
 	 */
 	public static function checkConnection():Bool
 	{
 		var sucessful:Bool;
-		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/onlineCheck.txt");
+		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/docs/onlineCheck.txt");
 
 		http.onData = function(data:String)
 		{
