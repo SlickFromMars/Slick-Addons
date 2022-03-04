@@ -4,6 +4,7 @@ package;
 import custom.Web;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import custom.SlickAddons;
 
 class PlayState extends FlxState
 {
@@ -12,16 +13,16 @@ class PlayState extends FlxState
 
 	override public function create()
 	{
-		var path = Path.getPath('SLICK_LOGO', 'image');
-		trace('Getting an image from ' + path);
+		SlickAddons.checkIfOutdated();
 
-		logo = new FlxSprite(0, 0).loadGraphic(path);
-		logo.screenCenter();
+		/* var path = Path.getPath('SLICK_LOGO', IMAGE);
+			trace('Getting an image from ' + path);
 
-		add(logo);
+			logo = new FlxSprite(0, 0).loadGraphic(path);
+			logo.screenCenter();
 
-		Web.openURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-
+			add(logo);
+		 */
 		/*booba = new FlxSprite();
 			booba.frames = AtlasFrameMaker.construct('assets/dynamic/images/minus_sakuroma_assets_full');
 

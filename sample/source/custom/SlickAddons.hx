@@ -21,15 +21,18 @@ class SlickAddons
 			var before:SemVer = SemVer.fromString(frameWorkVersion);
 			var after:SemVer = SemVer.fromString(meta.version);
 
-			switch (before.compare(after))
+			switch (after.compare(before))
 			{
 				case 1:
 					trace('Current version is newer. WTF?');
 				case -1:
 					trace('Current Slick Addons version is outdated.');
+					trace('Changes in newest version \n' + meta.releasenote);
 				case 0:
 					trace('Slick Addons is up to date.');
 			}
+
+			trace(before.original + ' ---> ' + after.original);
 		}
 
 		http.onError = function(error)

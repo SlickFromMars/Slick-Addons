@@ -21,7 +21,7 @@ class SemVer
 		var acrossAr:Array<String> = input.split('-');
 		var arr:Array<Dynamic> = [];
 
-		for (item in acrossAr[1].split('.'))
+		for (item in acrossAr[0].split('.'))
 		{
 			arr.push(Std.parseInt(item));
 		}
@@ -33,7 +33,10 @@ class SemVer
 		{
 			var among:Array<Dynamic> = acrossAr[2].split('.');
 
-			var pre:PreRelease;
+			var pre:PreRelease = {
+				type: ALPHA,
+				iteration: 0
+			};
 
 			pre.type = switch (among[0])
 			{
@@ -93,11 +96,6 @@ class SemVer
 				default:
 					throw 'bro how the hell did you manage this';
 			}
-		}
-
-		if (v.major == null || v.minor == null || v.patch == null)
-		{
-			throw 'bruh you idiot';
 		}
 
 		return v;
