@@ -38,9 +38,6 @@ class Path
 	public static var Extention_MAP:Map<CustomAssetType, String> = new Map<CustomAssetType, String>();
 	public static var Folders_MAP:Map<String, String> = new Map<String, String>();
 	#end
-
-	public static var type_array:Array<String> = [];
-	public static var type_array2:Array<String> = [SOUND_EXT, VIDEO_EXT, "png", "xml", "ttf", "json", "txt"];
 	public static var folder_array:Array<String> = [];
 
 	/**
@@ -80,87 +77,91 @@ class Path
 	 */
 	static public function getPath(file:String, type:CustomAssetType = NONE, ?library:Null<String> = null, ?use_openfl:Bool = true)
 	{
-		var path:String = 'assets/';
-		var folder = '';
-		var Extention_string:String = '';
 		if (library != null)
 			return _includeLibraryPath(file, library);
 
 		if (type != NONE)
 		{
-			for (value in EXT_MAP.keys())
+			var unique:Bool = false;
+			if (!unique)
 			{
-				var eminem = EXT_MAP[value];
-				type_array.push(eminem);
-				for (types in 0...type_array.length)
+				if (type == SOUND || type == MUSIC)
 				{
-					var eminemV2 = type_array[types];
-					if (type_array.length > -1)
-					{
-						switch (type)
-						{
-							case NONE:
-								eminemV2 = null;
-							case IMAGE:
-								eminemV2 = 'png';
-							case SOUND | MUSIC:
-								eminemV2 = SOUND_EXT;
-							case FONT:
-								eminemV2 = 'ttf';
-							case TEXT:
-								eminemV2 = 'txt';
-							case JSON:
-								eminemV2 = 'json';
-							case XML:
-								eminemV2 = 'xml';
-							case LUA:
-								eminemV2 = null;
-							case VIDEO:
-								eminemV2 = VIDEO_EXT;
-						}
-						if (!Extention_MAP.exists(type))
-							Extention_MAP.set(type, eminemV2);
-					}
-					Extention_string = '.' + Extention_MAP.get(type);
-					return getPath('$file$Extention_string');
+					file_funny = SOUND_EXT;
+					if (type == SOUND)
+						return getPath('sounds/$file.$file_funny', SOUND);
+					else
+						return getPath('music/$file.$file_funny', MUSIC);
+				}
+				else if (type == FONT)
+				{
+					file_funny = 'ttf';
+					return getPath('fonts/$file.$file_funny', FONT);
+				}
+				else if (type == VIDEO)
+				{
+					file_funny = VIDEO_EXT;
+					return getPath('videos/$file.$file_funny', VIDEO);
 				}
 			}
+			else
+			{
+				if (type == IMAGE)
+				{
+					file_funny = "png";
+				}
+				else if (type == TEXT)
+				{
+					file_funny = 'txt';
+				}
+				else if (type == JSON)
+				{
+					file_funny = 'json';
+				}
+				else if (type == LUA)
+				{
+					file_funny = 'lua';
+				}
+				return getPath('$file.$file_funny', type);
+			}
+			if (!Extention_MAP.exists(type))
+			{
+				Extention_MAP.set(type, file_funny);
+			}
 		}
-
-		for (folders in 0...folder_array.length)
+		else
 		{
-			var folderss = folder_array[folders];
-			if (folder_array.length > -1)
-			{
-				for (value in FOLDER_MAP.keys())
-				{
-					folder_array.push(value);
-					if (!Folders_MAP.exists(value))
-						Folders_MAP.set(value, folderss);
-
-					folder = Folders_MAP.get(value.toLowerCase());
-				}
-			}
+			file_funny = '';
 		}
-
-		path = 'assets/$folder/$file$Extention_string';
 
 		if (use_openfl)
 		{
-			if (fileExists(file, type))
+			if (OpenFlAssets.exists(getPath(file, type)))
+			{
 				return getPath(file, type, library);
+			}
 			else
 				return getPath(null, NONE, 'dynamic');
 		}
 		else
 		{
-			if (fileExists(file, type, false))
-				return getPath(file, type, library, false);
-			else
-				return getPath(null, NONE, 'dynamic', false);
+			#if sys
+			if (FileSystem.exists(getPath(file, type)))
+			#else
+			if (Assets.exists(getPath(file, type)))
+			#end
+			{
+				return getPath(file, type, library);
+			}
+		else
+		{
+			return getPath(null, NONE, 'dynamic');
+		}
 		}
 		return path;
 	}
+
+	static public function getModsPath(file:String, type:CustomAssetType = NONE, ?use_openfl:Bool = true) {}
 
 	static public function _includeLibraryPath(file:String, library:String)
 	{
