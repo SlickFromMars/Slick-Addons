@@ -23,7 +23,7 @@ class RunScript
 
 		getMetaFile();
 
-		var libs:Array<Array<String>> = meta.commands;
+		var libs:Array<Array<String>> = meta.libraries;
 
 		for (lib in libs)
 		{
