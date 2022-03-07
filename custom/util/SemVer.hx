@@ -126,20 +126,21 @@ class SemVer
 		if (mapOne == null)
 			mapOne = 0;
 
-		var mapTwo = maps.get(other.preRelease.type);
-		if (mapTwo == null)
-			mapTwo = 0;
+		/*var mapTwo = maps.get(other.preRelease.type);
+			if (mapTwo == null)
+				mapTwo = 0;
 
-		if (mapOne > mapTwo)
-			return -1;
-		if (mapOne < mapTwo)
-			return 1;
-		if (preRelease.iteration == 0 || other.preRelease.iteration == 0)
-			return 0;
-		if (preRelease.iteration > other.preRelease.iteration)
-			return -1;
-		if (preRelease.iteration < other.preRelease.iteration)
-			return -1;
+			if (mapOne > mapTwo)
+				return -1;
+			if (mapOne < mapTwo)
+				return 1;
+			if (preRelease.iteration == 0 || other.preRelease.iteration == 0)
+				return 0;
+			if (preRelease.iteration > other.preRelease.iteration)
+				return -1;
+			if (preRelease.iteration < other.preRelease.iteration)
+				return -1; */
+
 		return 0;
 	}
 
