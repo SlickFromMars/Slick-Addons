@@ -20,7 +20,7 @@ haxelib install slick_addons
 haxelib run slick_addons
 ```
 
-Anytime that you run `haxelib run slick_addons ` it will automatically update all of the libraries that are installed, including itself.
+Anytime that you run `haxelib run slick_addons` it will automatically update all of the libraries that are installed, including itself.
 
 ## Credits
 
