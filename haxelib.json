@@ -18,5 +18,6 @@
         "flixel-tools": "",
         "hscript": "",
         "actuate": ""
-    }
+    },
+    "main": "scripts.RunScript"
 }
