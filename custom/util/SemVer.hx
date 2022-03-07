@@ -121,9 +121,18 @@ class SemVer
 			return -1;
 		if (patch < other.patch)
 			return 1;
-		if (doThe(preRelease.type) > doThe(other.preRelease.type))
+
+		var mapOne = maps.get(preRelease.type);
+		if (mapOne == null)
+			mapOne = 0;
+
+		var mapTwo = maps.get(other.preRelease.type);
+		if (mapTwo == null)
+			mapTwo = 0;
+
+		if (mapOne > mapTwo)
 			return -1;
-		if (doThe(preRelease.type) < doThe(other.preRelease.type))
+		if (mapOne < mapTwo)
 			return 1;
 		if (preRelease.iteration == 0 || other.preRelease.iteration == 0)
 			return 0;
@@ -134,25 +143,12 @@ class SemVer
 		return 0;
 	}
 
+	static var maps:Map<PreTypes, Int> = [ALPHA => 1, BETA => 2, CANIDATE => 3];
+
 	public function new()
 	{
 		// balls
 	};
-
-	inline static function doThe(amongusinreallife:PreTypes):Int
-	{
-		return switch (amongusinreallife)
-		{
-			case ALPHA:
-				1;
-			case BETA:
-				2;
-			case CANIDATE:
-				3;
-			default:
-				0;
-		}
-	}
 }
 
 typedef PreRelease =
