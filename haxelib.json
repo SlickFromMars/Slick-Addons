@@ -19,5 +19,6 @@
         "hscript": "",
         "systools": ""
     },
-    "classPath": "custom"
+    "classPath": "custom",
+    "main": "scripts.RunScript"
 }
