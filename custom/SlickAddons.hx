@@ -12,14 +12,12 @@ class SlickAddons
 	public static function checkIfOutdated()
 	{
 		var sucessful:Bool;
-		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/haxelib.json");
+		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/current.txt");
 
 		http.onData = function(data:String)
 		{
-			var meta:HaxelibJSON = Json.parse(StringTools.trim(data));
-
 			var before:SemVer = SemVer.fromString(frameWorkVersion);
-			var after:SemVer = SemVer.fromString(meta.version);
+			var after:SemVer = SemVer.fromString(StringTools.trim(data));
 
 			switch (after.compare(before))
 			{
@@ -27,7 +25,6 @@ class SlickAddons
 					trace('Current version is newer. WTF?');
 				case -1:
 					trace('Current Slick Addons version is outdated.');
-					trace('Changes in newest version \n' + meta.releasenote);
 				case 0:
 					trace('Slick Addons is up to date.');
 			}
