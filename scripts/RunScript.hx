@@ -43,7 +43,14 @@ class RunScript
 
 		for (command in meta.commands)
 		{
-			Sys.command(command[0], command.slice(1));
+			var commandTwo:Array<String> = [];
+
+			for (i in 1...command.length)
+			{
+				commandTwo.push(command[i]);
+			}
+
+			Sys.command(command[0], commandTwo);
 		}
 	}
 
