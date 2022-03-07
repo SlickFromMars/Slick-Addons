@@ -21,6 +21,8 @@ class RunScript
 
 		trace('Self update complete, now installing all haxelibs. \n');
 
+		getMetaFile();
+
 		var libs:Array<Array<String>> = meta.commands;
 
 		for (lib in libs)
