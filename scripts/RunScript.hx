@@ -34,7 +34,7 @@ class RunScript
 			Sys.command("haxelib", ["update", lib[0]].concat(args));
 		}
 
-		trace('All installs and updates completed! \n Have a nice day :)');
+		trace('All installs and updates completed! \n \n Have a nice day :) \n');
 	}
 
 	static function checkForDeps():Array<Array<String>>
