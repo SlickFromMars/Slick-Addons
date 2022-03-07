@@ -1,7 +1,6 @@
 package scripts;
 
 import custom.SlickAddons;
-import custom.Web;
 
 class RunScript
 {
