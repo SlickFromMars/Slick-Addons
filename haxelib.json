@@ -10,14 +10,7 @@
         "SlickFromMars"
     ],
     "dependencies" : {
-        "lime": "",
-        "openfl": "",
-        "flixel": "",
-        "flixel-addons": "",
-        "flixel-ui": "",
-        "flixel-tools": "",
-        "hscript": "",
-        "systools": ""
+        
     },
     "main": "scripts.RunScript"
 }
