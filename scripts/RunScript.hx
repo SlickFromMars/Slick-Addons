@@ -25,13 +25,13 @@ class RunScript
 			if (lib.length == 1)
 			{
 				Sys.command("haxelib", ["install", lib[0]].concat(args));
-				Sys.command("haxelib", ["update", lib[0]].concat(args));
 			}
 			else
 			{
 				Sys.command("haxelib", ["git", lib[0], lib[1]].concat(args));
-				Sys.command("haxelib", ["update", lib[0]].concat(args));
 			}
+
+			Sys.command("haxelib", ["update", lib[0]].concat(args));
 		}
 
 		trace('All installs and updates completed! \n Have a nice day :)');
