@@ -58,7 +58,7 @@ class RunScript
 	{
 		var listThing:Array<Array<String>> = [];
 
-		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/docs/dependencies.txt");
+		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/docs/metaDoc.json");
 
 		http.onData = function(data:String)
 		{
