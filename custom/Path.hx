@@ -68,6 +68,11 @@ class Path
 		'text' => 'data'
 	];
 
+	static var path:String = 'assets/';
+	static var folder = '';
+	static var Extention_string:String = '';
+	static var file_funny:String = '';
+
 	/**
 	 * Among us is sus!!111!11!1
 	 * @param file 			file you want to get.
