@@ -27,7 +27,11 @@ class RunScript
 		var cwd = args.pop();
 		Sys.setCwd(cwd);
 
+		trace('Updating self... \n');
+
 		Sys.command("haxelib", ["update", "slick_addons"].concat(args));
+
+		trace('Self update complete, now installing all haxelibs. \n');
 
 		for (lib in libs)
 		{
@@ -41,5 +45,7 @@ class RunScript
 			Sys.command("haxelib", ["git", lib, link].concat(args));
 			Sys.command("haxelib", ["update", lib].concat(args));
 		}
+
+		trace('Self update complete! Have a nice day :)');
 	}
 }
