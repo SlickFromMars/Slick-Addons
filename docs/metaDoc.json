@@ -1,8 +1,5 @@
 {
     "commands": [
-        ["haxelib", "run", "lime", "setup"],
-		["haxelib", "run", "lime", "setup", "flixel"],
-		["haxelib", "run", "flixel-tools", "setup"],
 		["lime", "rebuild", "extension-webm", "windows"]
     ],
     "libraries": [
