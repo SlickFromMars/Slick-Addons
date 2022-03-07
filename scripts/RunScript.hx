@@ -15,9 +15,12 @@ class RunScript
 		"polymod"
 	];
 
-	static var gitLibs:Array<String> = ["linc_luajit"];
+	static var gitLibs:Array<String> = ["linc_luajit", "discord_rpc"];
 
-	static var gitLinks:Array<String> = ["https://github.com/AndreiRudenko/linc_luajit"];
+	static var gitLinks:Array<String> = [
+		"https://github.com/AndreiRudenko/linc_luajit",
+		"https://github.com/Aidan63/linc_discord-rpc"
+	];
 
 	public static function main()
 	{
