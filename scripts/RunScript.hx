@@ -1,9 +1,12 @@
 package scripts;
 
+import haxe.Json;
 import custom.SlickAddons;
 
 class RunScript
 {
+	static var meta:Balls;
+
 	public static function main()
 	{
 		SlickAddons.checkIfOutdated();
@@ -18,7 +21,7 @@ class RunScript
 
 		trace('Self update complete, now installing all haxelibs. \n');
 
-		var libs:Array<Array<String>> = checkForDeps();
+		var libs:Array<Array<String>> = meta.commands;
 
 		for (lib in libs)
 		{
@@ -34,33 +37,38 @@ class RunScript
 			Sys.command("haxelib", ["update", lib[0]].concat(args));
 		}
 
-		trace('All installs and updates completed! \n \n Have a nice day :) \n');
+		trace('All installs and updates completed! \n \n Now running some extra commands. \n');
+
+		for (command in meta.commands)
+		{
+			Sys.command(command[0], command.slice(1));
+		}
 	}
 
-	static function checkForDeps():Array<Array<String>>
+	static function getMetaFile()
 	{
-		var secondList:Array<Array<String>> = [];
+		var listThing:Array<Array<String>> = [];
 
 		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/docs/dependencies.txt");
 
 		http.onData = function(data:String)
 		{
-			var raw:String = StringTools.trim(data);
-			var firstList = raw.split('\n');
-
-			for (item in firstList)
-			{
-				secondList.push(item.split(' --> '));
-			}
+			meta = Json.parse(StringTools.trim(data));
 		}
 
 		http.onError = function(error)
 		{
-			trace('Error getting dependency list, this step will be skipped \n');
+			trace('Error getting command list. \n');
 		}
 
 		http.request();
 
-		return secondList;
+		return listThing;
 	}
+}
+
+typedef Balls =
+{
+	commands:Array<Array<String>>,
+	libraries:Array<Array<String>>
 }

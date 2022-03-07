@@ -1,0 +1,24 @@
+{
+    "commands": [
+        ["haxelib", "run", "lime", "setup"],
+		["haxelib", "run", "lime", "setup", "flixel"],
+		["haxelib", "run", "flixel-tools", "setup"],
+		["lime", "rebuild", "extension-webm", "windows"]
+    ],
+    "libraries": [
+        ["lime"],
+        ["openfl"],
+        ["flixel"],
+        ["flixel-ui"],
+        ["hscript"],
+        ["flixel-addons"],
+        ["systools"],
+        ["polymod"],
+        ["actuate"],
+        ["linc_luajit", "https://github.com/AndreiRudenko/linc_luajit"],
+        ["hxvm-luajit", "https://github.com/nebulazorua/hxvm-luajit"],
+        ["discord_rpc", "https://github.com/Aidan63/linc_discord-rpc"],
+        ["extension-webm", "https://github.com/KadeDev/extension-webm"],
+        ["faxe", "https://github.com/uhrobots/faxe"]
+    ]
+}
