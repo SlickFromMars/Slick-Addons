@@ -139,7 +139,7 @@ class SemVer
 		// balls
 	};
 
-	private function doThe(amongusinreallife:PreTypes):Int
+	inline static function doThe(amongusinreallife:PreTypes):Int
 	{
 		return switch (amongusinreallife)
 		{
