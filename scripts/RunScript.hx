@@ -4,24 +4,6 @@ import custom.SlickAddons;
 
 class RunScript
 {
-	static var libs:Array<String> = [
-		"lime",
-		"openfl",
-		"flixel",
-		"flixel-addons",
-		"flixel-ui",
-		"hscript",
-		"systools",
-		"polymod"
-	];
-
-	static var gitLibs:Array<String> = ["linc_luajit", "discord_rpc"];
-
-	static var gitLinks:Array<String> = [
-		"https://github.com/AndreiRudenko/linc_luajit",
-		"https://github.com/Aidan63/linc_discord-rpc"
-	];
-
 	public static function main()
 	{
 		SlickAddons.checkIfOutdated();
@@ -36,19 +18,49 @@ class RunScript
 
 		trace('Self update complete, now installing all haxelibs. \n');
 
+		var libs:Array<Array<String>> = checkForDeps();
+
 		for (lib in libs)
 		{
-			Sys.command("haxelib", ["install", lib].concat(args));
-			Sys.command("haxelib", ["update", lib].concat(args));
+			if (lib.length == 1)
+			{
+				Sys.command("haxelib", ["install", lib[0]].concat(args));
+				Sys.command("haxelib", ["update", lib[0]].concat(args));
+			}
+			else
+			{
+				Sys.command("haxelib", ["git", lib[0], lib[1]].concat(args));
+				Sys.command("haxelib", ["update", lib[0]].concat(args));
+			}
 		}
 
-		for (lib in gitLibs)
+		trace('All installs and updates completed! \n Have a nice day :)');
+	}
+
+	static function checkForDeps():Array<Array<String>>
+	{
+		var secondList:Array<Array<String>> = [];
+
+		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/docs/current.txt");
+
+		http.onData = function(data:String)
 		{
-			var link = gitLinks[gitLibs.indexOf(lib)];
-			Sys.command("haxelib", ["git", lib, link].concat(args));
-			Sys.command("haxelib", ["update", lib].concat(args));
+			var raw:String = StringTools.trim(data);
+			var firstList = raw.split('\n');
+
+			for (item in firstList)
+			{
+				secondList.push(item.split(' --> '));
+			}
 		}
 
-		trace('Self update complete! Have a nice day :)');
+		http.onError = function(error)
+		{
+			trace('Error getting dependency list, this step will be skipped \n');
+		}
+
+		http.request();
+
+		return secondList;
 	}
 }

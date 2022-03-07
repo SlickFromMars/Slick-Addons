@@ -12,7 +12,7 @@ class SlickAddons
 	public static function checkIfOutdated()
 	{
 		var sucessful:Bool;
-		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/current.txt");
+		var http = new haxe.Http("https://raw.githubusercontent.com/SlickFromMars/Slick-Addons/main/docs/current.txt");
 
 		http.onData = function(data:String)
 		{

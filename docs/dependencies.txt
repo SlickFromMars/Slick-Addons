@@ -1,0 +1,10 @@
+lime
+openfl
+flixel
+flixel-addons
+flixel-ui
+hscript
+systools
+polymod
+linc_luajit --> https://github.com/AndreiRudenko/linc_luajit
+discord_rpc --> https://github.com/Aidan63/linc_discord-rpc
