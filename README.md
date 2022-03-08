@@ -1,6 +1,6 @@
 # Slick Addons - A Quality Of Life Haxelib
 
-![](https://github.com/SlickFromMars/Slick-Addons/blob/main/include/images/SLICK_LOGO_SMALL.png)
+![](https://github.com/SlickFromMars/Slick-Addons/blob/nightly/include/images/SLICK_LOGO_SMALL.png)
 
 ## Features
 
